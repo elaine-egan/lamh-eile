@@ -1,6 +1,10 @@
 <?php
 /**
- * Sage includes
+ * Autoload all the NEW classes: `Castleview\Directory\Class_Name`
+ */
+require __DIR__ . '/vendor/autoload.php';
+/**
+ * LamhEile includes
  *
  * The $sage_includes array determines the code library included in your theme.
  * Add or remove files to the array as needed. Supports child theme overrides.

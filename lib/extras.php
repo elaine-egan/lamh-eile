@@ -1,8 +1,8 @@
 <?php
 
-namespace Roots\Sage\Extras;
+namespace Carawebs\LamhEile\Extras;
 
-use Roots\Sage\Setup;
+use Carawebs\LamhEile\Setup;
 
 /**
  * Add <body> classes

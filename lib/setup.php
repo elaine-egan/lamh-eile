@@ -1,8 +1,8 @@
 <?php
 
-namespace Roots\Sage\Setup;
+namespace Carawebs\LamhEile\Setup;
 
-use Roots\Sage\Assets;
+use Carawebs\LamhEile\Assets;
 
 /**
  * Theme setup

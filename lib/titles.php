@@ -1,6 +1,6 @@
 <?php
 
-namespace Roots\Sage\Titles;
+namespace Carawebs\LamhEile\Titles;
 
 /**
  * Page titles

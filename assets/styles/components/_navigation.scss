@@ -1,0 +1,29 @@
+nav.page ul {
+  text-align: center;
+  //test
+}
+
+nav.page ul li {
+  display: inline;
+  margin: 0 4px 0 0;
+}
+
+nav.page ul li a {
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  background: #fff;
+  //border-radius: 4px;
+}
+
+nav.page ul li a:hover,
+nav.page ul li a:focus {
+  background: #f0f0f0;
+  border-color: blue;
+}
+
+nav.page ul li a:active {
+  background: #fff;
+  border-color: #c0c0c0;
+}
