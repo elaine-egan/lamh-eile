@@ -4,6 +4,7 @@ This project uses Composer autoloader.
 
 Run `composer install`.
 
+
 Sage is a WordPress starter theme based on HTML5 Boilerplate, gulp, Bower, and Bootstrap Sass, that will help you make better themes.
 
 * Source: [https://github.com/roots/sage](https://github.com/roots/sage)

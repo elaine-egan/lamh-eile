@@ -58,7 +58,7 @@ class Frontpage {
       'cta'             => 'int',
       'cta_intro'       => 'text',
     ];
-
+    
     echo Intro::the_intro( $fieldname, $subfields, 'centred' );
 
   }

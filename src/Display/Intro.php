@@ -24,7 +24,7 @@ class Intro {
   public static function the_intro( $fieldname, $subfields, $layout = 'left-single' ) {
 
     $data = self::get_intro_data( $fieldname, $subfields );
-    //caradump( $data);
+    caradump( $data);
     $image        = $data[0]['image'];
     $title        = $data[0]['heading'];
     $content      = $data[0]['content'];
@@ -45,7 +45,7 @@ class Intro {
     }
 
     if ( 'centred' === $layout ) {
-
+      echo "<h2>Centre</h2>";
       include_once( get_template_directory() . '/partials/frontpage-intro-section-centred.php' );
 
     }

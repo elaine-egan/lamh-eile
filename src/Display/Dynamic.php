@@ -48,8 +48,8 @@ class Dynamic {
    */
   private function set_cta() {
 
-    //$this->cta = Helpers::main_CTA();
-    $this->cta = Helpers::click_to_call();
+    //$this->cta = Contact::main_CTA();
+    $this->cta = Contact::click_to_call();
 
   }
 
@@ -119,11 +119,54 @@ class Dynamic {
 
           break;
 
+        case 'intro':
+
+          $row_data .= $this->the_intro( $count );
+
+          break;
+
       }
 
     }
 
     echo $row_data;
+
+  }
+
+  /**
+   * [the_intro description]
+   * @param  [type] $count [description]
+   * @return [type]        [description]
+   */
+  private function the_intro( $count ) {
+
+    // Get the background styles, and build the opening tag
+    // -------------------------------------------------------------------------
+    $style          = $this->inline_style_data( $count );
+    $section_style  = $this->section_inline_style ( $style['bg_image_ID'], $style['fixed'], $style['bg_colour'], $style['text_colour'], $style['opacity'], 'intro' );
+
+    $content      = $this->flex_fieldname . '_' . $count . '_content';
+    $title        = $this->flex_fieldname . '_' . $count . '_title';
+
+    $content      = apply_filters( 'the_content', get_post_meta( $this->post_ID, $content, true ) );
+    $title        = apply_filters( 'the_title', get_post_meta( $this->post_ID, $title, true ) );
+    $include_cta  = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_cta', true );
+    $cta_intro    = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_cta_intro', true );
+    $columns      = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_column_width', true );
+
+    switch ( $columns ) {
+      case 'col-md-8':
+        $columns .= ' col-md-offset-2';
+        break;
+
+      case 'col-md-6':
+        $columns .= ' col-md-offset-3';
+        break;
+    }
+
+    ob_start();
+    include( get_template_directory() . '/partials/frontpage-intro-section-centred.php');
+    return ob_get_clean();
 
   }
 
@@ -194,7 +237,7 @@ class Dynamic {
     // Get the background styles, and build the opening tag
     // -------------------------------------------------------------------------
     $style          = $this->inline_style_data( $count );
-    $section_style  = $this->section_inline_style ( $style['bg_image_ID'], $style['fixed'], $style['bg_colour'], $style['text_colour'], $style['opacity'], 'call-to-action' );
+    $section_style  = $this->section_inline_style ( $style['bg_image_ID'], $style['fixed'], $style['bg_colour'], $style['text_colour'], $style['opacity'], 'testimonials' );
 
     // Fetch field-specific data
     // -------------------------------------------------------------------------
@@ -317,14 +360,26 @@ class Dynamic {
 
     // Get the background styles, and build the opening tag
     // -------------------------------------------------------------------------
+    $full_width     = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_full_width', true );
     $style          = $this->inline_style_data( $count );
-    $section_style  = $this->section_inline_style ( $style['bg_image_ID'], $style['fixed'], $style['bg_colour'], $style['text_colour'], $style['opacity'], 'call-to-action' );
+    $class          = '1' === $full_width ? 'two-column no-section-padding' : 'two-column';
+    $section_style  = $this->section_inline_style ( $style['bg_image_ID'], $style['fixed'], $style['bg_colour'], $style['text_colour'], $style['opacity'], $class );
 
-    $left_content  = apply_filters( 'the_content', get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_left_column_content', true ) );
-    $right_content = apply_filters( 'the_content', get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_right_column_content', true ) );
+    $left_content   = apply_filters( 'the_content', get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_left_column_content', true ) );
+    $right_content  = apply_filters( 'the_content', get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_right_column_content', true ) );
 
     ob_start();
-    include( get_template_directory() . '/partials/two-column-section.php' );
+
+    if ( '0' === $full_width ) {
+
+      include( get_template_directory() . '/partials/two-column-section.php' );
+
+    } else {
+
+      include( get_template_directory() . '/partials/two-column-section-full-width.php' );
+
+    }
+
     return ob_get_clean();
 
   }
@@ -340,9 +395,11 @@ class Dynamic {
 
     $img_src = wp_get_attachment_image_src( $image_ID, 'full' )[0];
 
+    // removed `margin-left: -15px; margin-right: -15px; ` from the inline style
+
     ob_start();
     ?>
-    <div class="section<?= !empty( $class ) ? ' ' . $class . ' ' : ' '; ?>full-width bg-image<?= !empty( $text_scheme ) ? ' '. $text_scheme : null; ?>" style="margin-left: -15px; margin-right: -15px; background:url('<?= $img_src; ?>') center center<?= true === $fixed ? ' fixed' : null; ?>; background-size: cover;">
+    <div class="section<?= !empty( $class ) ? ' ' . $class . ' ' : ' '; ?>full-width bg-image<?= !empty( $text_scheme ) ? ' '. $text_scheme : null; ?>" style="background:url('<?= $img_src; ?>') center center<?= true === $fixed ? ' fixed' : null; ?>; background-size: cover;">
       <div class="opaque-layer" <?php
       if ( !empty( $background_colour ) ) {
 

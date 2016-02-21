@@ -18,9 +18,9 @@ echo ! empty( $image_opacity ) ? $image_opacity : '<div class="opaque-layer">';
 
         }
 
-        if ( '1' == $cta ) {
+        if ( '1' == $include_cta ) {
 
-          echo Carawebs\Castleview\Display\Helpers::click_to_call();
+          echo Carawebs\LamhEile\Display\Helpers::click_to_call();
 
         }
 

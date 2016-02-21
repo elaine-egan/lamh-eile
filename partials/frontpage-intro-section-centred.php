@@ -17,7 +17,7 @@ echo ! empty( $image_opacity ) ? $image_opacity : '<div class="opaque-layer">';
 
             echo !empty ( $cta_intro ) ? "<p class='lead'>" . $cta_intro . "</p>" : null;
 
-            echo Carawebs\Castleview\Display\Helpers::click_to_call();
+            echo Carawebs\LamhEile\Display\Helpers::click_to_call();
 
           }
           ?>

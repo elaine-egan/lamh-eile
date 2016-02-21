@@ -17,6 +17,21 @@ function sidebar_path() {
   return new LamhEileWrapping('templates/sidebar.php');
 }
 
+function container() {
+
+  if ( is_page_template( 'template-landing-page.php' ) || is_front_page() ) {
+
+    return " container-fluid";
+
+
+  } else {
+
+    return " container";
+
+  }
+
+}
+
 class LamhEileWrapping {
   // Stores the full path to the main template file
   public static $main_template;

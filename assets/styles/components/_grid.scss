@@ -1,10 +1,85 @@
 // Grid system
+// See http://willschenk.com/bootstrap-advanced-grid-tricks/ for a description
+// of the offset, and setting semantic classes in Bootstrap.
+// -----------------------------------------------------------------------------
+
 .main {
+
+  // No sidebar, `.main` is full width
+  // ---------------------------------------------------------------------------
   @include make-sm-column($main-sm-columns);
+
+  // The body has the `.sidebar-primary` class - show sidebar
+  // ---------------------------------------------------------------------------
   .sidebar-primary & {
-    @include make-sm-column($main-sm-columns - $sidebar-sm-columns);
+
+    // `.main` is narrower by 1 columns, to give room for the offset
+    // -------------------------------------------------------------------------
+    @include make-sm-column($main-sm-columns - $sidebar-sm-columns - 1 );
+
   }
+
 }
+
 .sidebar {
+
+  // Set the width, then the offset, using Bootstrap mixins
+  // ---------------------------------------------------------------------------
   @include make-sm-column($sidebar-sm-columns);
+  @include make-sm-column-offset(1);
+
+}
+
+// Change Layout for Projects
+// -----------------------------------------------------------------------------
+.single-project.sidebar-primary {
+
+  .main {
+
+    // No sidebar, `.main` is full width
+    // ---------------------------------------------------------------------------
+    @include make-sm-column(5);
+
+    // The body has the `.sidebar-primary` class - show sidebar
+    // ---------------------------------------------------------------------------
+    // .sidebar-primary & {
+    //
+    //   // `.main` is narrower by 1 columns, to give room for the offset
+    //   // -------------------------------------------------------------------------
+    //   @include make-sm-column( 6 );
+
+    //}
+
+  }
+
+  .sidebar {
+
+    // Set the width, then the offset, using Bootstrap mixins
+    // ---------------------------------------------------------------------------
+    @include make-sm-column( 6 );
+    @include make-sm-column-offset(1);
+
+  }
+
+}
+
+.row.no-gutters {
+
+  margin-right: -10px;
+  margin-left: -10px;
+
+  .container-fluid & {
+
+    padding-left: 0;
+    padding-right: 0;
+
+  }
+
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+
+  padding-right: 0;
+  padding-left: 0;
+
 }
