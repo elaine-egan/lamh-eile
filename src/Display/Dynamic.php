@@ -9,7 +9,7 @@ use Carawebs\LamhEile\Loops;
 * Return data for a landing page.
 *
 *
-* @package LamhEile
+* @package Carawebs
 * @subpackage Display
 * @author David Egan <david@carawebs.com>
 *
@@ -125,11 +125,57 @@ class Dynamic {
 
           break;
 
+        case 'full_width_two_column_section':
+
+          $row_data .= $this->the_full_width_two_column_section( $count );
+
+          break;
+
       }
 
     }
 
     echo $row_data;
+
+  }
+
+  private function the_full_width_two_column_section( $count ) {
+
+    // Get the background styles, and build the opening tag
+    // -------------------------------------------------------------------------
+    $layout             = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_layout', true );
+    $style              = $this->inline_style_data( $count );
+    $class              = 'two-column no-section-padding';
+    $section_style      = $this->section_inline_style ( $style['bg_image_ID'], $style['fixed'], $style['bg_colour'], $style['text_colour'], $style['opacity'], $class );
+    $image_ID           = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_image', true );
+    $primary_content    = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_content_column', true );
+    $secondary_content  = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_second_content_column', true );
+    $image_html         = wp_get_attachment_image( $image_ID, 'large', '', ['class' => 'img-responsive'] );
+
+    $primary_content    = ! empty( $primary_content ) ? apply_filters( 'the_content', $primary_content ) : null;
+    $secondary_content  = ! empty( $secondary_content ) ? apply_filters( 'the_content', $secondary_content ) : null;
+
+    ob_start();
+
+    switch ( $layout ) {
+      case 'content-left':
+        include( get_template_directory() . '/partials/left-content-column-section.php' );
+        break;
+
+      case 'content-right':
+        include( get_template_directory() . '/partials/right-content-column-section.php' );
+        break;
+
+      case 'content-both':
+        include( get_template_directory() . '/partials/two-column-section-full-width.php' );
+        break;
+
+      default:
+        include( get_template_directory() . '/partials/two-column-section-full-width.php' );
+        break;
+    }
+
+    return ob_get_clean();
 
   }
 
@@ -360,25 +406,15 @@ class Dynamic {
 
     // Get the background styles, and build the opening tag
     // -------------------------------------------------------------------------
-    $full_width     = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_full_width', true );
     $style          = $this->inline_style_data( $count );
-    $class          = '1' === $full_width ? 'two-column no-section-padding' : 'two-column';
-    $section_style  = $this->section_inline_style ( $style['bg_image_ID'], $style['fixed'], $style['bg_colour'], $style['text_colour'], $style['opacity'], $class );
+    $section_style  = $this->section_inline_style ( $style['bg_image_ID'], $style['fixed'], $style['bg_colour'], $style['text_colour'], $style['opacity'], 'two-column' );
 
     $left_content   = apply_filters( 'the_content', get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_left_column_content', true ) );
     $right_content  = apply_filters( 'the_content', get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_right_column_content', true ) );
 
     ob_start();
 
-    if ( '0' === $full_width ) {
-
-      include( get_template_directory() . '/partials/two-column-section.php' );
-
-    } else {
-
-      include( get_template_directory() . '/partials/two-column-section-full-width.php' );
-
-    }
+    include( get_template_directory() . '/partials/two-column-section.php' );
 
     return ob_get_clean();
 

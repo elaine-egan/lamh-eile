@@ -2,7 +2,7 @@
 
 ?>
 <!-- set for auto play data-ride="carousel" data-interval="8000" add class carousel-fade-->
-<div id="full-width-carousel" class="full-width carousel carousel-fade" data-ride="carousel" data-interval="false">
+<div id="full-width-carousel" class="full-width carousel carousel-fade background-carousel" data-ride="carousel" data-interval="false">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#full-width-carousel" data-slide-to="0" class="active"></li>
@@ -12,7 +12,6 @@
   <div class="row">
     <!-- Slides -->
     <div class="carousel-inner">
-
       <?php
       $i = 0;
       foreach( $images as $image ) : ?>
@@ -24,8 +23,7 @@
                 <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                   <div class="cw-well">
                     <h2>{{site.tagline}}</h2>
-                    {% markdown content/frontpage/intro-section.md %}
-                    <p>{{ slide.description }}</p>
+                    <p><?= $image['description']; ?></p>
                     <a href="#internal-main" class="btn btn-circle page-scroll">
                       <i class="fa fa-chevron-down animated"></i>
                     </a>

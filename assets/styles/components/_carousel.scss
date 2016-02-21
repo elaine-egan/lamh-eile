@@ -1,0 +1,291 @@
+$carousel-background: rgba(0,0,0,0.4);
+
+.carousel {
+
+  padding-bottom: 40px;
+
+
+}
+
+.carousel-inner {
+
+  img {
+
+    margin-bottom: 0;
+
+  }
+
+  .caption-container {
+
+    position: relative;
+
+    h4 {
+
+      position: absolute;
+      bottom: 0;
+      padding: 10px;
+      background: $carousel-background;
+      margin-bottom: 0;
+      color: #fff;
+      width: 100%;
+      text-align: center;
+
+    }
+
+  }
+
+}
+
+.carousel-control {
+
+  .fa {
+
+    font-size: 30px;
+    line-height: 30px;
+    padding: 5px;
+    background: $carousel-background;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    z-index: 5;
+    display: inline-block;
+
+  }
+
+}
+
+.carousel-control {
+
+  background-image: none;
+  filter: none;
+
+  &:hover, &:focus {
+
+    background-image: none;
+    opacity: 1;//0.9;
+    filter: none;//alpha(opacity=90);
+
+  }
+
+}
+
+.left.carousel-control {
+
+  background-image: none;
+  text-align: left;
+
+  .fa {
+    left: 0;
+  }
+}
+
+.right.carousel-control {
+
+  background-image: none;
+  text-align: left;
+
+  .fa {
+    right: 0;
+  }
+}
+
+// Indicators
+.carousel-indicators {
+
+  background: rgba(0,0,0,0.3);
+  margin-bottom: 0;
+  width: 40%;
+  margin-left: -20%;
+
+}
+
+.carousel-indicators .active {
+
+  margin: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+
+}
+
+.carousel-indicators li {
+
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  border: 1px solid #fff;
+  border-radius: 0;//10px;
+  cursor: pointer;
+  bottom: 0;
+
+}
+
+@media screen and (min-width: 768px) {
+
+  .carousel-indicators {
+
+    bottom: 0;
+
+  }
+
+}
+
+.sidebar #testimonials-carousel {
+
+  a.play-pause {
+
+    font-size: 12px;
+
+  }
+
+  .carousel-control-wrap {
+
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    height: 35px;
+    width: 60px;
+    margin-top: 10px;
+
+    a .glyphicon {
+
+      color: $blockquote-fg;
+
+    }
+
+  }
+
+}
+
+#testimonials-carousel {
+
+  blockquote:before {
+
+    color: #fff;
+
+  }
+
+  position: relative;
+
+  a.play-pause {
+
+    display: inline-block;
+
+  }
+
+  #play-carousel {
+
+    display: none;
+
+  }
+
+  .testimonial-person {
+
+    font-weight: bold;
+
+  }
+
+  .carousel-control-wrap {
+
+    position: absolute;
+    //bottom: -20px;
+    right: 0;
+    height: 35px;
+    width: 100px;
+    margin-top: 10px;
+
+    a .glyphicon {
+
+      color: $blockquote-fg;
+
+    }
+
+  }
+
+  .carousel-control,
+  .carousel-control .fa {
+
+    width: 100%;
+    height: auto;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    font-size: 12px;
+    color: #000;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    &:hover {
+      opacity: 1;
+    }
+
+  }
+
+}
+
+// Fade not slide
+// -----------------------------------------------------------------------------
+.carousel-fade {
+
+  opacity: 1;
+
+  .item {
+
+    // Fade out timings
+    -moz-transition: opacity ease-in-out .3s;
+    -o-transition: opacity ease-in-out .3s;
+    -webkit-transition: opacity ease-in-out .3s;
+    transition: opacity ease-in-out .3s;
+    left: 0 !important;
+    opacity: 0;
+    top:0;
+    position: absolute;
+    width: 100%;
+    display: block !important;
+    &:first-child {
+
+      top: auto;
+      position: relative;
+
+    }
+
+    &.active {
+
+      opacity: 1;
+      // Fade in timings
+      -moz-transition: opacity ease-in-out .8s;
+      -o-transition: opacity ease-in-out .8s;
+      -webkit-transition: opacity ease-in-out .8s;
+      transition: opacity ease-in-out .8s;
+
+    }
+
+  }
+
+}
+
+.carousel-caption {
+  //padding: 0 0 350px 0;
+}
+
+/**
+ * Full width carousel
+ */
+#full-width-carousel {
+
+  .carousel-control .fa {
+
+    font-size: 40px;
+    padding: 40px 5px 40px 5px;
+
+  }
+
+  .right.carousel-control .fa {
+    right: -15px;
+  }
+
+  .left.carousel-control .fa {
+    left: -15px;
+  }
+
+}

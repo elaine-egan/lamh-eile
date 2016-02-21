@@ -45,23 +45,38 @@ class Frontpage {
 
   }
 
-  public function the_intro( $fieldname = 'intro', $subfields = null, $layout = null ) {
+  public function the_intro() {
 
-    $subfields = [
-      'image'           => ['image_ID', 'full'],
-      'heading'         => 'text',
-      'content'         => 'text',
-      'text_colour'     => 'text',
-      'image_opacity'   => 'float',
-      'opacity_colour'  => 'text',
-      'layout'          => 'text',
-      'cta'             => 'int',
-      'cta_intro'       => 'text',
-    ];
-    
-    echo Intro::the_intro( $fieldname, $subfields, 'centred' );
+    $title = get_post_meta( $this->post_ID, 'intro_title', true );
+    $content = apply_filters( 'the_content', get_post_meta( $this->post_ID, 'intro_content', true ) );
+    $image_ID = get_post_meta( $this->post_ID, 'intro_image', true );
+    $image_HTML = wp_get_attachment_image( $image_ID, 'large', '', ['class' => 'img-responsive'] );
+
+    ob_start();
+
+    include_once( get_template_directory() . '/partials/frontpage-intro-section-left-single.php' );
+
+    echo ob_get_clean();
 
   }
+
+  // public function the_intro( $fieldname = 'intro', $subfields = null, $layout = null ) {
+  //
+  //   $subfields = [
+  //     'image'           => ['image_ID', 'full'],
+  //     'heading'         => 'text',
+  //     'content'         => 'text',
+  //     'text_colour'     => 'text',
+  //     'image_opacity'   => 'float',
+  //     'opacity_colour'  => 'text',
+  //     'layout'          => 'text',
+  //     'cta'             => 'int',
+  //     'cta_intro'       => 'text',
+  //   ];
+  //
+  //   echo Intro::the_intro( $fieldname, $subfields, 'centred' );
+  //
+  // }
 
   public function the_call_to_action( $fieldname = 'call_to_action', $type = 'text' ) {
 
