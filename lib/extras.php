@@ -25,6 +25,22 @@ function body_class($classes) {
 }
 add_filter('body_class', __NAMESPACE__ . '\\body_class');
 
+function custom_get_excerpt( $post_ID, $words = 10 ) {
+
+  $post_object = get_post( $post_ID );
+
+  if ( empty( $post_object->post_excerpt ) ) {
+
+    return wp_kses_post( wp_trim_words( $post_object->post_content, $words, '&hellip;' ) );
+
+  } else {
+
+    return wp_kses_post( $post_object->post_excerpt );
+
+  }
+
+}
+
 /**
  * Clean up the_excerpt()
  */

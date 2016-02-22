@@ -26,27 +26,22 @@ class Contact {
 
   }
 
-  public static function combined_contact() {
+  public static function combined_contact( $args ) {
 
     $email = self::get_email();
-    $call_args = [
-      // 'number' => null,
-      // 'prefix' => null,
-      // 'button_text' => null,
-      // 'prefix' => null,
-      'btn_class' => 'btn-lg btn-block'
-    ];
+    extract( $args );
 
+    $button_class = ! empty( $btn_class ) ? ' ' . implode( " ", $btn_class ) : null;
 
     ob_start();
 
     ?>
     <div class="row">
       <div class="col-md-6">
-        <?= self::click_to_call( $call_args ); ?>
+        <?= self::click_to_call( $args ); ?>
       </div>
       <div class="col-md-6">
-        <a href="mailto:<?= $email; ?>" class="btn btn-default btn-lg btn-block email">
+        <a href="mailto:<?= $email; ?>" class="email btn btn-default<?= $button_class; ?>">
           Email Us
         </a>
       </div>
@@ -179,6 +174,7 @@ class Contact {
    *
    * @see `/partials/click-to-call.php`
    * @see `/src/Display/Shortcodes::main_CTA_shortcode()`
+   * @param  array  $button_settings An array of settings - extracted to $number, $button_text, $prefix, $btn_class
    * @param  string $number       The phone number. If null, fetch the number set by `carawebs-address` plugin
    * @param  string $prefix       The prefix, if necessary
    * @param  string $button_text  Button text, overrides defaults
@@ -186,7 +182,6 @@ class Contact {
    */
   public static function click_to_call( $button_settings = null ) {
 
-    //$number = null, $prefix = null, $button_text = null, $prefix = null
     if (! empty( $button_settings ) ) {
 
       extract( $button_settings );
@@ -197,7 +192,7 @@ class Contact {
     $clickable_number = self::call_number( $number );
     $button_text      = empty( $button_text ) ? "Click to Call" : $button_text;
     $prefix           = ! empty( $prefix ) ? $prefix : null;
-    $btn_class        = ! empty( $btn_class ) ? ' ' . $btn_class : null;
+    $btn_class        = ! empty( $btn_class ) ? ' ' . implode( " ", $btn_class ) : null;
 
     ob_start();
 

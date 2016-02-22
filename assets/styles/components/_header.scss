@@ -1,5 +1,11 @@
 .logged-in .navbar-fixed-top {
 
   margin-top: 30px;
-  
+
+}
+
+.navbar.navbar-default {
+
+  border-bottom: solid 8px $navbar-default-link-active-bg;
+
 }

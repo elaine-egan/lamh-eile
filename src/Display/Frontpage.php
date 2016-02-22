@@ -46,12 +46,18 @@ class Frontpage {
 
   public function the_intro() {
 
-    $title = get_post_meta( $this->post_ID, 'intro_title', true );
-    $content = apply_filters( 'the_content', get_post_meta( $this->post_ID, 'intro_content', true ) );
-    $image_ID = get_post_meta( $this->post_ID, 'intro_image', true );
-    $image_HTML = wp_get_attachment_image( $image_ID, 'large', '', ['class' => 'img-responsive'] );
-    $subfields = ['image', 'text'];
-    $carousel = Carousel::the_carousel( 'intro_carousel', $subfields, 'full', 'basic' );
+    $title        = get_post_meta( $this->post_ID, 'intro_title', true );
+    $image_ID     = get_post_meta( $this->post_ID, 'intro_image', true );
+    $content      = apply_filters( 'the_content', get_post_meta( $this->post_ID, 'intro_content', true ) );
+    $image_HTML   = wp_get_attachment_image( $image_ID, 'large', '', ['class' => 'img-responsive'] );
+    $subfields    = ['image', 'text'];
+    $carousel     = Carousel::the_carousel( 'intro_carousel', $subfields, 'full', 'basic' );
+    $button_args  = [
+      'btn_class' => [
+        'btn-md',
+        'btn-block'
+        ]
+      ];
 
     ob_start();
 
