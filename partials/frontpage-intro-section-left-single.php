@@ -13,25 +13,11 @@
         <h2><?= $title; ?></h2>
         <div class="lead">
           <?= $content; ?>
+          <?= Carawebs\LamhEile\Display\Contact::combined_contact(); ?>
         </div>
-        <?php
-
-        // if ( !empty ( $cta_intro ) && '1' == $cta ) {
-        //
-        //   echo "<p class='lead'>" . $cta_intro . "</p>";
-        //
-        // }
-        //
-        // if ( '1' == $include_cta ) {
-        //
-        //   echo Carawebs\LamhEile\Display\Helpers::click_to_call();
-        //
-        // }
-
-        ?>
       </div>
       <div class="col-md-5 col-md-offset-1">
-        <?= $image_HTML; ?>
+        <?= !empty( $image_HTML ) ? $image_HTML : $carousel; ?>
       </div>
     </div>
   </div>

@@ -35,15 +35,14 @@ class Frontpage {
 
   }
 
-  public function the_carousel() {
-
-    $fieldname  = 'carousel';
-    $size       = 'full';
-    $type       = 'basic';
-
-    echo Carousel::the_carousel( $fieldname, $size, $type );
-
-  }
+  // public function the_carousel( $fieldname  = 'intro_carousel' ) {
+  //
+  //   $size       = 'full';
+  //   $type       = 'basic';
+  //
+  //   echo Carousel::the_carousel( $fieldname, $size, $type );
+  //
+  // }
 
   public function the_intro() {
 
@@ -51,6 +50,8 @@ class Frontpage {
     $content = apply_filters( 'the_content', get_post_meta( $this->post_ID, 'intro_content', true ) );
     $image_ID = get_post_meta( $this->post_ID, 'intro_image', true );
     $image_HTML = wp_get_attachment_image( $image_ID, 'large', '', ['class' => 'img-responsive'] );
+    $subfields = ['image', 'text'];
+    $carousel = Carousel::the_carousel( 'intro_carousel', $subfields, 'full', 'basic' );
 
     ob_start();
 
@@ -59,24 +60,6 @@ class Frontpage {
     echo ob_get_clean();
 
   }
-
-  // public function the_intro( $fieldname = 'intro', $subfields = null, $layout = null ) {
-  //
-  //   $subfields = [
-  //     'image'           => ['image_ID', 'full'],
-  //     'heading'         => 'text',
-  //     'content'         => 'text',
-  //     'text_colour'     => 'text',
-  //     'image_opacity'   => 'float',
-  //     'opacity_colour'  => 'text',
-  //     'layout'          => 'text',
-  //     'cta'             => 'int',
-  //     'cta_intro'       => 'text',
-  //   ];
-  //
-  //   echo Intro::the_intro( $fieldname, $subfields, 'centred' );
-  //
-  // }
 
   public function the_call_to_action( $fieldname = 'call_to_action', $type = 'text' ) {
 

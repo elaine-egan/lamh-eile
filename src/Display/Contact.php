@@ -8,6 +8,55 @@ use Carawebs\LamhEile\Fetch;
  */
 class Contact {
 
+  public static function CTA ( $type, $text = null, $number_prefix = null ) {
+
+    switch ( $type ) {
+      case 'phone':
+        return self::click_to_call( null, null, $text, $number_prefix );
+        break;
+
+      case 'email':
+        return self::email_link( $text );
+        break;
+
+      default:
+        # code...
+        break;
+    }
+
+  }
+
+  public static function combined_contact() {
+
+    $email = self::get_email();
+    $call_args = [
+      // 'number' => null,
+      // 'prefix' => null,
+      // 'button_text' => null,
+      // 'prefix' => null,
+      'btn_class' => 'btn-lg btn-block'
+    ];
+
+
+    ob_start();
+
+    ?>
+    <div class="row">
+      <div class="col-md-6">
+        <?= self::click_to_call( $call_args ); ?>
+      </div>
+      <div class="col-md-6">
+        <a href="mailto:<?= $email; ?>" class="btn btn-default btn-lg btn-block email">
+          Email Us
+        </a>
+      </div>
+    </div>
+    <hr>
+    <?php
+    return ob_get_clean();
+
+  }
+
   /**
    * Build the main call to action
    *
@@ -119,25 +168,6 @@ class Contact {
 
   }
 
-  public static function CTA ( $type, $text = null, $number_prefix = null ) {
-
-    switch ( $type ) {
-      case 'phone':
-        return self::click_to_call( null, null, $text, $number_prefix );
-        break;
-
-      case 'email':
-        return self::email_link( $text );
-        break;
-
-      default:
-        # code...
-        break;
-    }
-
-
-  }
-
   /**
    * Build and return HTML for a "click to call" button
    *
@@ -154,12 +184,20 @@ class Contact {
    * @param  string $button_text  Button text, overrides defaults
    * @return string               HTML for a click to call button
    */
-  public static function click_to_call( $number = null, $prefix = null, $button_text = null, $prefix = null ) {
+  public static function click_to_call( $button_settings = null ) {
+
+    //$number = null, $prefix = null, $button_text = null, $prefix = null
+    if (! empty( $button_settings ) ) {
+
+      extract( $button_settings );
+
+    }
 
     $number           = empty( $number ) ? self::mobile_number() : $number;
     $clickable_number = self::call_number( $number );
     $button_text      = empty( $button_text ) ? "Click to Call" : $button_text;
     $prefix           = ! empty( $prefix ) ? $prefix : null;
+    $btn_class        = ! empty( $btn_class ) ? ' ' . $btn_class : null;
 
     ob_start();
 
@@ -175,7 +213,7 @@ class Contact {
    * @param  [type] $text [description]
    * @return [type]       [description]
    */
-  public static function email_link( $text ) {
+  public static function email_link( $text = null ) {
 
     $text = empty( $text ) ? "Email Us" : $text;
     $email = self::get_email();

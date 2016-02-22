@@ -10,7 +10,7 @@ $frontpage = new Display\Frontpage( get_the_ID() );
 $frontpage->the_intro();
 
 $flexible_content = new Display\Dynamic( get_the_ID() );
-Display\Carousel::the_carousel();
+
 
 // The flexible layout
 $flexible_content->the_flexible_content();

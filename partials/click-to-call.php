@@ -5,11 +5,11 @@
  */
 ?>
 <span class="hidden-xs">
-  <span class="phone-text non-click-phone"><h4><i class="fa fa-phone fa-fw fa-rotate-270"></i>&nbsp;<?php echo !empty( $prefix ) ? $prefix . ' ' : null; ?><?= $number; ?></h4></span>
+  <span class="btn btn-default<?= $btn_class; ?>"><i class="glyphicon glyphicon-phone"></i>&nbsp;<?php echo !empty( $prefix ) ? $prefix . ' ' : null; ?><?= $number; ?></span>
 </span>
 <span class="hidden-sm hidden-md hidden-lg">
-  <a href="tel:<?= $clickable_number; ?>" class="click-phone btn btn-default btn-lg">
+  <a href="tel:<?= $clickable_number; ?>" class="click-phone btn btn-default<?= $btn_class; ?>">
     <span class="phone-text"><?= $button_text; ?></span>
-    <i class="fa fa-phone fa-fw fa-rotate-270"></i>
+    <i class="glyphicon glyphicon-phone"></i>
   </a>
 </span>

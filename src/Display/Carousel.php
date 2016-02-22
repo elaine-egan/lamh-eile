@@ -14,11 +14,13 @@ class Carousel {
    * @param  string $image_size Required image size
    * @return array              Array of image data
    */
-  public static function carousel_data( $fieldname, $image_size ) {
+  public static function carousel_data( $fieldname, array $subfields, $image_size ) {
 
     $data = new \Carawebs\LamhEile\Fetch\PostMeta( get_the_ID() );
 
-    $subfields = ['image' => ['image_ID', $image_size], 'description' => 'text' ];
+
+
+    $subfields = ['image' => ['image_ID', $image_size], $subfields[1] => 'text' ];
 
     return $data->repeater( $fieldname, $subfields );
 
@@ -31,9 +33,9 @@ class Carousel {
    * @param  string $image_size Required image size
    * @return string             HTML for carousel
    */
-  public static function the_carousel( $fieldname = 'carousel', $image_size = 'full', $type = 'background' ) {
+  public static function the_carousel( $fieldname = 'carousel', array $subfields, $image_size = 'full', $type = 'background' ) {
 
-    $images = self::carousel_data( $fieldname, $image_size );
+    $images = self::carousel_data( $fieldname, $subfields, $image_size );
 
     // If there are no images set, go back empty
     // -------------------------------------------------------------------------
@@ -47,7 +49,7 @@ class Carousel {
         break;
 
       case 'basic':
-        include_once( get_template_directory() . '/partials/basic-carousel-2.php' );
+        include_once( get_template_directory() . '/partials/basic-carousel.php' );
         break;
 
       default:
