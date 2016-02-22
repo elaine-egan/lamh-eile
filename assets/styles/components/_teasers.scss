@@ -1,0 +1,13 @@
+.teaser {
+
+  .services & {
+
+    //@extend .light-text;
+    @extend .dark-text;
+
+    background: lighten($brand-grey, 60%);
+    //color: #fff;
+    padding: 20px;
+  }
+
+}

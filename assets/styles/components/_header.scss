@@ -9,3 +9,54 @@
   border-bottom: solid 8px $navbar-default-link-active-bg;
 
 }
+
+.banner {
+
+  padding: 40px 0;
+  background: $banner-bg;
+
+  .brand-text,
+  .brand-logo {
+
+    display: inline-block;
+    vertical-align: middle;
+
+  }
+
+  .brand-logo {
+
+    width: 100px;
+    max-width: 100px;
+    margin-left: -20px;
+    //border: solid 1px $grey;
+
+  }
+
+  .brand-text {
+
+    margin-left: -20px;
+
+    /* Large screen & Bigger */
+    @media (min-width: $screen-lg) {
+    	.brand { font-size: 40px; }
+    }
+    /* Medium screen and smaller */
+    @media (max-width: $screen-md-max) {
+    	.brand { font-size: 30px; }
+    }
+    /* Small screen and smaller */
+    @media (max-width: $screen-sm-max) {
+    	.brand { font-size: 30px; }
+    }
+    /* Extra small screen and smaller */
+    @media (max-width: $screen-xs-max) {
+    	.brand { font-size: 20px; }
+    }
+    /* smaller than Extra small screen */
+    @media (max-width: ($screen-xs - 1)) {
+    	//
+    }
+
+  }
+
+}

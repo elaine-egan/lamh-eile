@@ -19,6 +19,28 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+
+        // Equalise element heights to that of tallest
+        function equalHeight(group) {
+        	var tallest = 0;
+        	group.each(function() {
+        		var thisHeight = $(this).height();
+        		if(thisHeight > tallest) {
+        			tallest = thisHeight;
+        		}
+        	});
+        	group.height(tallest);
+        }
+
+        $(document).ready(function() {
+        	equalHeight($(".teaser"));
+        	//equalHeight($(".footer-col"));
+        });
+
+        $(".teaser").resize(function(){
+         	$(".teaser").equalHeights();
+        });
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

@@ -3,3 +3,10 @@
   margin-top: 78px;
 
 }
+
+.lead {
+
+  font-size: floor(($font-size-base * 1.1));
+  line-height: 1.5; // default is 1.4
+
+}

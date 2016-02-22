@@ -19,12 +19,14 @@
       foreach( $services_data as $service ) {
 
         $permalink = $service['the_permalink'];
-        $excerpt = Carawebs\LamhEile\Extras\custom_get_excerpt( $service['post_ID'] );
+        // $excerpt = Carawebs\LamhEile\Extras\custom_get_excerpt( $service['post_ID'] );
+        $preview = apply_filters( 'the_content', get_post_meta( $service['post_ID'], 'preview_content', true ) );
         $title = $service['the_title'];
+        $class = sanitize_title( $title );
 
         ?>
         <div class="col-md-6">
-          <div class="teaser">
+          <div class="teaser <?= $class; ?>">
             <div class="featured-image">
               <div class="hover-icon">
                 <a href="<?= $permalink; ?>" title="<?= $title; ?>">
@@ -38,7 +40,7 @@
             <a href="<?= $permalink; ?>" class="title">
               <h3><?= $title; ?></h3>
             </a>
-            <p><?= $excerpt; ?></p>
+            <p><?= $preview; ?></p>
             <p><a class="btn btn-default btn-md" href="<?= $permalink; ?>">Read More &raquo;</a></p>
           </div>
         </div>

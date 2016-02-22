@@ -9,14 +9,14 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-5">
         <h2><?= $title; ?></h2>
-        <div class="">
+        <div class="lead">
           <?= $content; ?>
           <?= Carawebs\LamhEile\Display\Contact::combined_contact( $button_args ); ?>
         </div>
       </div>
-      <div class="col-md-5 col-md-offset-1">
+      <div class="col-md-6 col-md-offset-1">
         <?= !empty( $image_HTML ) ? $image_HTML : $carousel; ?>
       </div>
     </div>

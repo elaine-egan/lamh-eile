@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 48 48"
+   style="enable-background:new 0 0 48 48;"
+   xml:space="preserve"
+   inkscape:version="0.48.4 r9939"
+   width="100%"
+   height="100%"
+   sodipodi:docname="glyphicons-453-shop.svg"><metadata
+     id="metadata10"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs8" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1881"
+     inkscape:window-height="1056"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="4.9166667"
+     inkscape:cx="24"
+     inkscape:cy="24"
+     inkscape:window-x="39"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" /><g
+     id="shop_2_"><path
+       d="M34,16H13v-2c0-0.55,0.45-1,1-1h19c0.55,0,1,0.45,1,1V16z M13.502,24.008c1.13,0,2.044-0.891,2.096-2.008   c0,0,0.073-0.328,0.401-0.328c0.329,0,0.406,0.328,0.406,0.328c0.052,1.117,0.966,2.008,2.097,2.008   c1.13,0,2.044-0.891,2.096-2.008c0,0,0.073-0.328,0.401-0.328S21.405,22,21.405,22c0.052,1.117,0.966,2.008,2.097,2.008   c1.13,0,2.044-0.891,2.096-2.008c0,0,0.073-0.328,0.401-0.328S26.405,22,26.405,22c0.052,1.117,0.966,2.008,2.097,2.008   c1.13,0,2.044-0.891,2.096-2.008c0,0,0.073-0.328,0.401-0.328S31.405,22,31.405,22c0.052,1.117,0.966,2.008,2.097,2.008   c1.163,0,2.106-0.941,2.106-2.105C35.608,21.578,35.5,21,35.5,21L33,17H14l-2.5,4c0,0-0.105,0.578-0.105,0.902   C11.395,23.066,12.338,24.008,13.502,24.008z M35,35v1H12v-1c0-0.55,0.45-1,1-1v-9h21v9C34.55,34,35,34.45,35,35z M20,27h-4v7h4V27   z M31,28h-8v4h8V28z"
+       id="path4" /></g></svg>
