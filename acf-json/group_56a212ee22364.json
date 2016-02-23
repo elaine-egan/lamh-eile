@@ -1,0 +1,42 @@
+{
+    "key": "group_56a212ee22364",
+    "title": "Map",
+    "fields": [
+        {
+            "key": "field_56a212f413511",
+            "label": "Main Location",
+            "name": "main_location",
+            "type": "google_map",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "center_lat": "52.76",
+            "center_lng": "-8.763",
+            "zoom": 12,
+            "height": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": ""
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1456240387
+}

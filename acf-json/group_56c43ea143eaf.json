@@ -1,0 +1,222 @@
+{
+    "key": "group_56c43ea143eaf",
+    "title": "Project Information",
+    "fields": [
+        {
+            "key": "field_56c59a1b1769c",
+            "label": "Your Project Information",
+            "name": "your_project_information",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Enter the information about this project in the following fields. If you leave a field blank, it will not display on the page. You can add more than one testimonial if you like - if you do, testimonials will display as a slider.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_56c43eb0e122b",
+            "label": "Client",
+            "name": "client",
+            "type": "text",
+            "instructions": "Enter the Client Name.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_56c43f247c687",
+            "label": "Project Type",
+            "name": "project_type",
+            "type": "text",
+            "instructions": "Enter some details about this project - state the type of work that was carried out.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_56c43fa846337",
+            "label": "Date Started",
+            "name": "date_started",
+            "type": "date_picker",
+            "instructions": "Select the date that the project started.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": "Mrs Sally Murphy"
+            },
+            "display_format": "d\/m\/Y",
+            "return_format": "d\/m\/Y",
+            "first_day": 1
+        },
+        {
+            "key": "field_56c43fc87243f",
+            "label": "Date Completed",
+            "name": "date_completed",
+            "type": "date_picker",
+            "instructions": "Select the date on which the project was completed.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y",
+            "return_format": "d\/m\/Y",
+            "first_day": 1
+        },
+        {
+            "key": "field_56c440b84d581",
+            "label": "Testimonials",
+            "name": "project_testimonials",
+            "type": "repeater",
+            "instructions": "Enter a testimonial that is specific for this project",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_56c44113a7f37",
+            "min": "",
+            "max": "",
+            "layout": "table",
+            "button_label": "Add Testimonial",
+            "sub_fields": [
+                {
+                    "key": "field_56c44113a7f37",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "textarea",
+                    "instructions": "Enter the text of the testimonial.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_56c44146a7f38",
+                    "label": "Person",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "Enter the name of the person who has provided the testimonial.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_56c44165a7f39",
+                    "label": "Company",
+                    "name": "company",
+                    "type": "text",
+                    "instructions": "If necessary, enter a company name that should be associated with this testimonial. Leave this blank if this is a domestic project.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                }
+            ]
+        },
+        {
+            "key": "field_56c6323746619",
+            "label": "Location",
+            "name": "location",
+            "type": "text",
+            "instructions": "Enter a location:",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "project"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1456240403
+}

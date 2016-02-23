@@ -35,6 +35,8 @@ function setup() {
   // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails');
+  add_image_size('800x800', 800, 800, true);
+  add_image_size('800landscape', 800, 533, true);
 
   // Enable post formats
   // http://codex.wordpress.org/Post_Formats
@@ -86,6 +88,8 @@ function display_sidebar() {
     is_404(),
     is_front_page(),
     is_page_template('template-custom.php'),
+    //is_singular('service'),
+    is_singular('project')
   ]);
 
   return apply_filters('sage/display_sidebar', $display);
@@ -102,5 +106,6 @@ function assets() {
   }
 
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+  wp_enqueue_script('sage/js', Assets\asset_path('scripts/sticky-navbar.js'), ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

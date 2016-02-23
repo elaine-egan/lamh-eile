@@ -1,0 +1,42 @@
+{
+    "key": "group_56cb64bc3d53e",
+    "title": "Preview",
+    "fields": [
+        {
+            "key": "field_56cb64c78b336",
+            "label": "Preview Content",
+            "name": "preview_content",
+            "type": "wysiwyg",
+            "instructions": "Enter content that will be shown as a preview (for example, on the homepage)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "service"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1456240396
+}

@@ -35,8 +35,17 @@
       //wp_bootstrap_navwalker
       ?>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="mailto:#" title="Contact us by email"><i class="glyphicon glyphicon-envelope"></i></a></li>
-        <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+        <li>
+          <a class="contact" href="mailto:#" title="Contact us by email"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Email</a>
+        </li>
+        <li>
+          <a class="hidden-xs contact">
+            <i class="glyphicon glyphicon-earphone"></i>&nbsp;087 111 2222
+          </a>
+          <span class="visible-xs hidden-sm hidden-md hidden-lg">
+            <a class="contact" href="#"><i class="glyphicon glyphicon-earphone"></i> Click to Call</a>
+          </span>
+        </li>
       </ul>
     </nav>
   </div>

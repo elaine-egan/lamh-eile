@@ -6,7 +6,11 @@ $main-sm-columns:       12;
 $sidebar-sm-columns:    4;
 
 // Colors
-$brand-primary:        #27ae60;
+$brand-primary:         #3574b7;
+$brand-grey:            rgb(57, 69, 46);
+$brand-light-grey:      #d2dbca;
+$dark-grey:             #666;
+$brand-blue:            #3980bf;
 
 $blockquote-bg:        $brand-primary;
 $blockquote-fg:        #fff;
@@ -18,24 +22,22 @@ $grey:                   lighten($gray-base, 33.5%) !default; // #555
 $grey-light:             lighten($gray-base, 46.7%) !default; // #777
 $grey-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
-$brand-primary:         #3574b7;
-$brand-grey:            rgb(57, 69, 46);
-$brand-light-grey:      #d2dbca;
-$dark-grey:             #666;
-
 $footer-bg:                  $grey-darker;
 $footer-fg:                  #fff;
 
 $banner-bg:              lighten($brand-light-grey, 10%);
 $navbar-default-bg:      $banner-bg;
 $navbar-default-border:  $banner-bg;
+$navbar-margin-bottom: 0;
 //$navbar-default-link-active-color: #fff;
 $navbar-default-link-active-bg:    $brand-light-grey;
+$navbar-padding-vertical: 5px;
+$navbar-height: 40px;
 
 $screen-lg-min: 1420px;
 $grid-gutter-width: 20px;
 $container-large-desktop: 1380px + $grid-gutter-width;
-//$container-md: 970px + $grid-gutter-width;
+////$container-md: 970px + $grid-gutter-width;
 
 // Components
 // Define common padding and border radius sizes and more.

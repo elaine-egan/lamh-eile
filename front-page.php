@@ -17,7 +17,7 @@ $flexible_content->the_flexible_content();
 
 ?>
 
-<div class="section map">
+<!-- <div class="section map">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
@@ -25,7 +25,7 @@ $flexible_content->the_flexible_content();
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <?php
 
 endwhile; ?>

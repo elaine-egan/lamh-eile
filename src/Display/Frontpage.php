@@ -59,6 +59,9 @@ class Frontpage {
         ]
       ];
 
+    $style          = $this->inline_style_data();
+    $section_style  = $this->section_inline_style ( $style['bg_image_ID'], $style['fixed'], $style['bg_colour'], $style['text_colour'], $style['opacity'], 'two-column' );
+
     ob_start();
 
     include_once( get_template_directory() . '/partials/frontpage-intro-section-left-single.php' );
@@ -66,6 +69,49 @@ class Frontpage {
     echo ob_get_clean();
 
   }
+
+  private function inline_style_data () {
+
+    return [
+      'bg_image_ID' => get_post_meta( $this->post_ID, 'image', true ),
+      'bg_colour'   => get_post_meta( $this->post_ID, 'background_colour', true ),
+      'text_colour' => get_post_meta( $this->post_ID, 'text_colour', true ), // 'light_text', 'dark_text', 'default_text'
+      'opacity'     => get_post_meta( $this->post_ID, 'image_opacity', true ),
+      'fixed'       => '1' === get_post_meta( $this->post_ID, 'fixed_image', true ) ? true : false, // 'fixed' position on background image
+    ];
+
+  }
+
+  private function section_inline_style ( $image_ID = null, $fixed, $background_colour, $text_colour, $opacity = null, $class = null ) {
+
+    $style = null;
+    $text_scheme = $text_colour;
+
+    // An image has not been set, background colour not set, so return null and don't apply any styles
+    if( null === $image_ID && null === $background_colour ) { return; }
+
+
+    $img_src = wp_get_attachment_image_src( $image_ID, 'full' )[0];
+
+    // removed `margin-left: -15px; margin-right: -15px; ` from the inline style
+
+    ob_start();
+    ?>
+    <div class="section<?= !empty( $class ) ? ' ' . $class . ' ' : ' '; ?>full-width bg-image<?= !empty( $text_scheme ) ? ' '. $text_scheme : null; ?>" style="background:url('<?= $img_src; ?>') center center<?= true === $fixed ? ' fixed' : null; ?>; background-size: cover;">
+      <div class="opaque-layer" <?php
+      if ( !empty( $background_colour ) ) {
+
+        echo 'style="background-color: ' . $background_colour . ';';
+        echo !empty( $opacity ) ? ' opacity: ' . $opacity . ';"' : '"';
+
+      }
+
+      ?>></div>
+      <?php
+
+      return ob_get_clean();
+
+    }
 
   public function the_call_to_action( $fieldname = 'call_to_action', $type = 'text' ) {
 

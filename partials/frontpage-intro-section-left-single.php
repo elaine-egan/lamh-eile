@@ -3,8 +3,8 @@
  *
  *
  */
+echo ! empty( $section_style ) ? $section_style : '<div class="section intro bg-image">';
 ?>
-<div class="section intro bg-image">
   <div class="opaque-layer">
   </div>
   <div class="container">

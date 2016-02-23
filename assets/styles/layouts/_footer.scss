@@ -1,0 +1,18 @@
+.footer {
+  padding-top: $padding-base-vertical * 2;
+  background: $footer-bg;
+  color: $footer-fg;
+
+  a {
+
+    color: $footer-fg;
+    text-decoration: underline;
+
+    &:hover {
+
+      text-decoration: none;
+
+    }
+
+  }
+}

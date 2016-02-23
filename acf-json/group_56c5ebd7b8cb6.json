@@ -1,0 +1,152 @@
+{
+    "key": "group_56c5ebd7b8cb6",
+    "title": "Call to Action",
+    "fields": [
+        {
+            "key": "field_56c5ef66e5ce9",
+            "label": "Type",
+            "name": "type",
+            "type": "radio",
+            "instructions": "Select between a phone or email call to action",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": [
+
+            ],
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "phone",
+            "layout": "vertical"
+        },
+        {
+            "key": "field_56c5efa1e5cea",
+            "label": "Override Phone Number",
+            "name": "phone",
+            "type": "text",
+            "instructions": "If you want to override the default phone number, enter the number here:",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_56c5ef66e5ce9",
+                        "operator": "==",
+                        "value": "phone"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_56c5efdae5ceb",
+            "label": "Override Default Email",
+            "name": "email",
+            "type": "text",
+            "instructions": "If necessary, you can override the default email address.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_56c5ef66e5ce9",
+                        "operator": "==",
+                        "value": "email"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_56c5f004e5cec",
+            "label": "Call to Action Heading",
+            "name": "call_to_action_heading",
+            "type": "text",
+            "instructions": "Enter the heading for the call to action on this page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Contact Us",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_56c5f03ae5ced",
+            "label": "Call to Action Intro",
+            "name": "call_to_action_intro",
+            "type": "text",
+            "instructions": "Enter an intro sentence for the call to action, if necessary.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Contact us today to discuss your project.",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "service"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "project"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1456240409
+}

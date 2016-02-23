@@ -3,6 +3,100 @@
   padding-top: 80px;
   padding-bottom: 80px;
 
+  &.the-services {
+
+    .teaser {
+
+      position: relative;
+
+      &.domestic-landscaping {
+
+        h3:before {
+
+          background-image: url(../images/home.svg);
+
+        }
+
+      }
+
+      &.commercial-property-maintenance {
+
+        h3:before {
+
+          background-image: url(../images/commercial-building.svg);
+
+        }
+
+      }
+
+      h3 {
+
+        padding-left: 80px;
+        padding-bottom: 40px;
+
+        &:before {
+
+          content: ' ';
+          display:block;
+          width: 100px;
+          height: 100px;
+          position: absolute;
+          top: -20px;
+          left: 40px;
+          background-repeat: no-repeat;
+          color: blue;
+
+        }
+
+      }
+
+
+      // &.domestic-landscaping {
+      //
+      //   h3 {
+      //
+      //     padding-left: 80px;
+      //     padding-bottom: 40px;
+      //
+      //     &:before {
+      //
+      //       content: ' ';
+      //       display:block;
+      //       width: 100px;
+      //       height: 100px;
+      //       position: absolute;
+      //       top: -20px;
+      //       left: 40px;
+      //       background-repeat: no-repeat;
+      //       background-image: url(../images/home.svg);//
+      //       color: blue;
+      //
+      //     }
+      //
+      //   }
+      //
+      // }
+
+    }
+
+    /* Medium screen and bigger */
+    @media (min-width: $screen-md-max) {
+
+      .teaser-content {
+        padding-left: 40px;
+
+      }
+
+    }
+
+    h3 {
+
+      margin-top: 0;
+
+    }
+
+  }
+
 }
 
 .no-section-padding {

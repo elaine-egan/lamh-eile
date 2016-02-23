@@ -147,10 +147,10 @@ class Dynamic {
     $style              = $this->inline_style_data( $count );
     $class              = 'two-column no-section-padding';
     $section_style      = $this->section_inline_style ( $style['bg_image_ID'], $style['fixed'], $style['bg_colour'], $style['text_colour'], $style['opacity'], $class );
-    $image_ID           = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_image', true );
+    $fg_image_ID        = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_foreground_image', true );
     $primary_content    = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_content_column', true );
     $secondary_content  = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_second_content_column', true );
-    $image_html         = wp_get_attachment_image( $image_ID, 'large', '', ['class' => 'img-responsive'] );
+    $image_html         = wp_get_attachment_image( $fg_image_ID, 'large', '', ['class' => 'img-responsive'] );
 
     $primary_content    = ! empty( $primary_content ) ? apply_filters( 'the_content', $primary_content ) : null;
     $secondary_content  = ! empty( $secondary_content ) ? apply_filters( 'the_content', $secondary_content ) : null;
@@ -241,6 +241,10 @@ class Dynamic {
    */
   private function the_services( $count ) {
 
+    $style          = $this->inline_style_data( $count );
+    $section_style  = $this->section_inline_style ( $style['bg_image_ID'], $style['fixed'], $style['bg_colour'], $style['text_colour'], $style['opacity'], 'the-services' );
+
+
     $title = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_services_title', true );
     $intro = get_post_meta( $this->post_ID, $this->flex_fieldname . '_' . $count . '_services_intro', true );
     $services = new Loops\Services();
@@ -248,7 +252,7 @@ class Dynamic {
 
     ob_start();
 
-    include( get_template_directory() . '/partials/services-section.php');
+    include( get_template_directory() . '/partials/services-section-alt.php');
 
     return ob_get_clean();
 
